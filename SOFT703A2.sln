@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOFT703A2.Infrastructure", "SOFT703A2.Infrastructure\SOFT703A2.Infrastructure.csproj", "{0F387E78-D25B-4735-BC60-0BD45B38DF7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOFT703A2.Domain", "SOFT703A2.Domain\SOFT703A2.Domain.csproj", "{35FC20DB-6475-494C-9D98-CABB9C801907}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOFT703A2.WebApp", "SOFT703A2.WebApp\SOFT703A2.WebApp.csproj", "{14891773-E115-4268-9522-172138F255EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F387E78-D25B-4735-BC60-0BD45B38DF7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F387E78-D25B-4735-BC60-0BD45B38DF7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F387E78-D25B-4735-BC60-0BD45B38DF7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F387E78-D25B-4735-BC60-0BD45B38DF7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35FC20DB-6475-494C-9D98-CABB9C801907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35FC20DB-6475-494C-9D98-CABB9C801907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35FC20DB-6475-494C-9D98-CABB9C801907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35FC20DB-6475-494C-9D98-CABB9C801907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14891773-E115-4268-9522-172138F255EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14891773-E115-4268-9522-172138F255EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14891773-E115-4268-9522-172138F255EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14891773-E115-4268-9522-172138F255EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

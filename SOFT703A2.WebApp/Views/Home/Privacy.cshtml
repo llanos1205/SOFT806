@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Contact"] = "Contact Us";
+}
+<div class="col-md-4 offset-md-4">
+    <h1>@ViewData["Contact"]</h1>
+
+    <form action="/submit" method="post" style="max-width: 400px; margin: 0 auto; text-align: center;">
+        <label for="title" style="display: block; margin-bottom: 10px;">Title：</label>
+        <input type="text" id="title" title="title" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px;">
+
+        <label for="description" style="display: block; margin-bottom: 10px;">Description：</label>
+        <textarea id="description" name="description" rows="4" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+
+        <input type="submit" value="Submit" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
+    </form>
+    <p >Call us 023 3482 934 </p>
+    <p >Email Us us@gmail.com </p>
+</div>

@@ -1,0 +1,95 @@
+2023-12-01 19:18:47.156 +13:00 [INF] User profile is available. Using 'C:\Users\admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-01 19:18:47.228 +13:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-01 19:18:47.228 +13:00 [INF] Hosting environment: Development
+2023-12-01 19:18:47.229 +13:00 [INF] Content root path: C:\Users\admin\Documents\Repos\SOFT703A2\SOFT703A2.WebApp
+2023-12-01 19:18:47.249 +13:00 [INF] Request starting HTTP/2 GET https://localhost:44310/ - -
+2023-12-01 19:18:47.297 +13:00 [INF] Executing endpoint 'SOFT703A2.WebApp.Controllers.HomeController.Index (SOFT703A2.WebApp)'
+2023-12-01 19:18:47.308 +13:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SOFT703A2.WebApp.Controllers.HomeController (SOFT703A2.WebApp).
+2023-12-01 19:18:47.318 +13:00 [INF] Executing action method SOFT703A2.WebApp.Controllers.HomeController.Index (SOFT703A2.WebApp) - Validation state: "Valid"
+2023-12-01 19:18:47.493 +13:00 [INF] Executed action method SOFT703A2.WebApp.Controllers.HomeController.Index (SOFT703A2.WebApp), returned result Microsoft.AspNetCore.Mvc.ViewResult in 169.4646ms.
+2023-12-01 19:18:47.504 +13:00 [INF] Executing ViewResult, running view Index.
+2023-12-01 19:18:47.662 +13:00 [INF] Executed ViewResult - view Index executed in 154.4779ms.
+2023-12-01 19:18:47.668 +13:00 [INF] Executed action SOFT703A2.WebApp.Controllers.HomeController.Index (SOFT703A2.WebApp) in 359.5154ms
+2023-12-01 19:18:47.670 +13:00 [INF] Executed endpoint 'SOFT703A2.WebApp.Controllers.HomeController.Index (SOFT703A2.WebApp)'
+2023-12-01 19:18:47.676 +13:00 [INF] Request starting HTTP/2 GET https://localhost:44310/css/Shared/_layout.css?v=umnInVjAYThzg4WGBZqBJjGX4P9Jhhykf9Du2oh_Rec - -
+2023-12-01 19:18:47.683 +13:00 [INF] The file /css/Shared/_layout.css was not modified
+2023-12-01 19:18:47.686 +13:00 [INF] Request finished HTTP/2 GET https://localhost:44310/css/Shared/_layout.css?v=umnInVjAYThzg4WGBZqBJjGX4P9Jhhykf9Du2oh_Rec - - - 304 - text/css 9.8917ms
+2023-12-01 19:18:47.694 +13:00 [INF] Request finished HTTP/2 GET https://localhost:44310/ - - - 200 - text/html;+charset=utf-8 449.2262ms
+2023-12-01 19:19:19.553 +13:00 [INF] Application is shutting down...
+2023-12-01 19:30:41.437 +13:00 [ERR] An exception occurred while iterating over the results of a query for context type 'SOFT703A2.Infrastructure.Persistence.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): The SELECT permission was denied on the object 'AspNetRoles', database 'SOFT703A2', schema 'dbo'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:0e09503e-ac0e-43d7-9aa8-93580446c35a
+Error Number:229,State:5,Class:14
+Microsoft.Data.SqlClient.SqlException (0x80131904): The SELECT permission was denied on the object 'AspNetRoles', database 'SOFT703A2', schema 'dbo'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:0e09503e-ac0e-43d7-9aa8-93580446c35a
+Error Number:229,State:5,Class:14
+2023-12-01 19:30:56.125 +13:00 [ERR] An exception occurred while iterating over the results of a query for context type 'SOFT703A2.Infrastructure.Persistence.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): The SELECT permission was denied on the object 'AspNetRoles', database 'SOFT703A2', schema 'dbo'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:e24d3d76-6511-4fcc-9fb8-66c9c229d10d
+Error Number:229,State:5,Class:14
+Microsoft.Data.SqlClient.SqlException (0x80131904): The SELECT permission was denied on the object 'AspNetRoles', database 'SOFT703A2', schema 'dbo'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:e24d3d76-6511-4fcc-9fb8-66c9c229d10d
+Error Number:229,State:5,Class:14
+2023-12-01 19:32:50.831 +13:00 [INF] User profile is available. Using 'C:\Users\admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-01 19:32:50.906 +13:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-01 19:32:50.907 +13:00 [INF] Hosting environment: Development
+2023-12-01 19:32:50.907 +13:00 [INF] Content root path: C:\Users\admin\Documents\Repos\SOFT703A2\SOFT703A2.WebApp
+2023-12-01 19:32:50.926 +13:00 [INF] Request starting HTTP/2 GET https://localhost:44310/ - -
+2023-12-01 19:32:50.967 +13:00 [INF] Executing endpoint 'SOFT703A2.WebApp.Controllers.HomeController.Index (SOFT703A2.WebApp)'
+2023-12-01 19:32:50.977 +13:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller SOFT703A2.WebApp.Controllers.HomeController (SOFT703A2.WebApp).
+2023-12-01 19:32:50.986 +13:00 [INF] Executing action method SOFT703A2.WebApp.Controllers.HomeController.Index (SOFT703A2.WebApp) - Validation state: "Valid"
+2023-12-01 19:32:51.146 +13:00 [INF] Executed action method SOFT703A2.WebApp.Controllers.HomeController.Index (SOFT703A2.WebApp), returned result Microsoft.AspNetCore.Mvc.ViewResult in 154.5908ms.
+2023-12-01 19:32:51.158 +13:00 [INF] Executing ViewResult, running view Index.
+2023-12-01 19:32:51.313 +13:00 [INF] Executed ViewResult - view Index executed in 154.3558ms.
+2023-12-01 19:32:51.319 +13:00 [INF] Executed action SOFT703A2.WebApp.Controllers.HomeController.Index (SOFT703A2.WebApp) in 341.1305ms
+2023-12-01 19:32:51.321 +13:00 [INF] Executed endpoint 'SOFT703A2.WebApp.Controllers.HomeController.Index (SOFT703A2.WebApp)'
+2023-12-01 19:32:51.336 +13:00 [INF] Request finished HTTP/2 GET https://localhost:44310/ - - - 200 - text/html;+charset=utf-8 413.6662ms
+2023-12-01 19:32:56.316 +13:00 [INF] Application is shutting down...

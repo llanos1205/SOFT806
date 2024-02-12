@@ -1,0 +1,44 @@
+﻿@model SOFT703A2.Infrastructure.Contracts.ViewModels.Trolley.ITrolleyViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Trolley Contents</h2>
+
+<div id="trolley-container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>SubTotal</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Trolley.ProductXTrolleys)
+        {
+            <tr>
+                <td><img src="@item.Product.Photo" class="card-img-top product-image" alt="Product Image"></td>
+                <td>@item.Product.Name</td>
+                <td>@item.Product.Price</td>
+                <td>@item.Quantity</td>
+                <td>@(item.Quantity * item.Product.Price)</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <p>Total: $@Model.Trolley.Total</p>
+    
+    
+</div>
+
+<style>
+    .product-image {
+        max-width: 80px; 
+        max-height: 80px; 
+    }
+</style>
