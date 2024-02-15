@@ -36,3 +36,12 @@ jobs:
         with:
           name: webapp-artifact
           path: ./publish
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Run docker compose
+        run: docker-compose -f docker-compose.yml up -d
