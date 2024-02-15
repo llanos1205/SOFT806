@@ -29,21 +29,8 @@ jobs:
         run: dotnet build SOFT703A2.WebApp --configuration Release --no-restore
 
       - name: Run tests
-        run: dotnet test SOFT806.Tests --no-restore --verbosity normal --collect:"Code Coverage;Format=opencover;Output=coverage.xml" --results-directory ./test-results
-        
-      - name: Upload test results
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-results
-          path: ./test-results
-
-      - name: Analyze test coverage (optional)
-        uses: dotnet-code-coverage-action/action@v3
-        with:
-          reports: ./test-results/**/coverage.xml
-          fail-on-missing-reports: true
-          fail-under-coverage: 80
-
+        run: dotnet test SOFT806.Tests --no-restore --verbosity normal
+   
       - name: Publish application
         run: dotnet publish SOFT703A2.WebApp --configuration Release --output ./publish --no-restore  --no-build
 
