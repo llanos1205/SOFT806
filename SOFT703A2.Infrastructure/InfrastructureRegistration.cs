@@ -47,7 +47,17 @@ public static class InfrastructureRegistration
         LoadLogging(services);
         LoadRepositories(services);
         LoadViewModels(services);
-        //await Seeding(services);
+        var seeding = configuration.GetSection("SEEDING").Value;
+        Log.Warning("SEEDING: {seeding}", seeding);
+        if (seeding == "True")
+        {
+            Log.Warning("I AM SEEDING");
+            await Seeding(services);
+        }
+        else
+        {
+            Log.Warning("DIDNT SEED");
+        }
         return services;
     }
 

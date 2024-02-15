@@ -7,9 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<AdminAuthorizationFilter>();
 builder.Services.AddScoped<CustomAuthorizeAttribute>();
-builder.Configuration.AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json",
+builder.Configuration.AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT")}.json",
     optional: true, reloadOnChange: false); // Environment-specific settings
-
+builder.Configuration.AddEnvironmentVariables( );
 await builder.Services.AddInfrastructureServices(builder.Configuration);
 var app = builder.Build();
 
@@ -17,7 +17,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

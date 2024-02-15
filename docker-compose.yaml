@@ -1,22 +1,45 @@
 ﻿services:
-  database:
+  api:
+    image: soft803-api:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api
+    hostname: api
+    ports:
+      - "3000:3000"
+    depends_on:
+      db_sqlserver:
+        condition: service_healthy
+      migrations:
+        condition: service_completed_successfully
+    environment:
+      - SEEDING=True
+      - DOTNET_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:3000
+  db_sqlserver:
     image: "mcr.microsoft.com/mssql/server:2022-latest"
-    container_name: database
-    hostname: database
-    
+    container_name: db_sqlserver
+    hostname: db_sqlserver
     ports:
       - "5433:1433"
     environment:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=Password123
+    healthcheck:
+      test: "exit 0"
   migrations:
     image: soft803-migrations:latest
-    build: 
-        context: .
-        dockerfile: Migrations.Dockerfile
-    depends_on: 
-      - database
+    healthcheck:
+      test: "exit 0"
+    build:
+      context: .
+      dockerfile: Migrations.Dockerfile
+    depends_on:
+      db_sqlserver:
+        condition: service_healthy
     environment:
-      - ConnectionStrings__DefaultConnection=Server=database;Database=Soft803;User=sa;Password=Password123;TrustServerCertificate=True;
-    entrypoint: ["dotnet", "ef", "database", "update", "--project", "SOFT703A2.Infrastructure/SOFT703A2.Infrastructure.csproj", "--startup-project", "SOFT703A2.WebApp/SOFT703A2.WebApp.csproj"]
+      - DOTNET_ENVIRONMENT=Development
+      - SEEDING=False
+    entrypoint: [ "dotnet", "ef", "database", "update", "--project", "SOFT703A2.Infrastructure/SOFT703A2.Infrastructure.csproj", "--startup-project", "SOFT703A2.WebApp/SOFT703A2.WebApp.csproj" ]
 

@@ -14,7 +14,7 @@
       "launchBrowser":false,
       "applicationUrl": "http://localhost:5292",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Local"
+        "DOTNET_ENVIRONMENT": "Local"
       }
     },
     "http-dev": {
@@ -23,7 +23,7 @@
       "launchBrowser":false,
       "applicationUrl": "http://localhost:5292",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "DOTNET_ENVIRONMENT": "Development"
       }
     },
     
@@ -33,7 +33,7 @@
       "launchBrowser":false,
       "applicationUrl": "http://localhost:5292",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Test"
+        "DOTNET_ENVIRONMENT": "Test"
       }
     }
   }

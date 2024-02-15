@@ -1,5 +1,5 @@
 ﻿FROM mcr.microsoft.com/dotnet/sdk:7.0 AS base
-
+ARG SEEDING
 WORKDIR /app
 COPY . ./
 RUN dotnet restore
