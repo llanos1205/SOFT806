@@ -20,16 +20,19 @@ jobs:
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 7.x  
+          dotnet-version: 7.x
 
       - name: Restore dependencies
-        run: dotnet restore SOFT703A2.WebApp
+        run: dotnet restore
 
       - name: Build application
-        run: dotnet build SOFT703A2.WebApp --configuration Release
+        run: dotnet build SOFT703A2.WebApp --configuration Release --no-restore
 
+      - name: Run tests
+        run: dotnet test SOFT806.Tests --no-restore --verbosity normal
+        
       - name: Publish application
-        run: dotnet publish SOFT703A2.WebApp --configuration Release --output ./publish
+        run: dotnet publish SOFT703A2.WebApp --configuration Release --output ./publish --no-restore  --no-build
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
@@ -37,11 +40,12 @@ jobs:
           name: webapp-artifact
           path: ./publish
   deploy:
+    
     runs-on: self-hosted
-
+    needs: build
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
+
       - name: Run docker compose
         run: docker-compose -f docker-compose.yaml up -d
