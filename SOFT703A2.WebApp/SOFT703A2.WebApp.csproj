@@ -8,12 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\SOFT703A2.Domain\SOFT703A2.Domain.csproj" />
       <ProjectReference Include="..\SOFT703A2.Infrastructure\SOFT703A2.Infrastructure.csproj" />
     </ItemGroup>

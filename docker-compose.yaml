@@ -1,0 +1,22 @@
+﻿services:
+  database:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    container_name: database
+    hostname: database
+    
+    ports:
+      - "5433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Password123
+  migrations:
+    image: soft803-migrations:latest
+    build: 
+        context: .
+        dockerfile: Migrations.Dockerfile
+    depends_on: 
+      - database
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=database;Database=Soft803;User=sa;Password=Password123;TrustServerCertificate=True;
+    entrypoint: ["dotnet", "ef", "database", "update", "--project", "SOFT703A2.Infrastructure/SOFT703A2.Infrastructure.csproj", "--startup-project", "SOFT703A2.WebApp/SOFT703A2.WebApp.csproj"]
+
