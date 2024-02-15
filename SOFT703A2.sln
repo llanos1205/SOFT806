@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOFT703A2.Domain", "SOFT703
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOFT703A2.WebApp", "SOFT703A2.WebApp\SOFT703A2.WebApp.csproj", "{14891773-E115-4268-9522-172138F255EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOFT806.Tests", "SOFT806.Tests\SOFT806.Tests.csproj", "{9AADA6BC-BA34-40A3-89F6-F384D446D6CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{14891773-E115-4268-9522-172138F255EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14891773-E115-4268-9522-172138F255EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14891773-E115-4268-9522-172138F255EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AADA6BC-BA34-40A3-89F6-F384D446D6CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AADA6BC-BA34-40A3-89F6-F384D446D6CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AADA6BC-BA34-40A3-89F6-F384D446D6CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AADA6BC-BA34-40A3-89F6-F384D446D6CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

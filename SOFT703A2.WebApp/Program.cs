@@ -7,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<AdminAuthorizationFilter>();
 builder.Services.AddScoped<CustomAuthorizeAttribute>();
+builder.Configuration.AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json",
+    optional: true, reloadOnChange: false); // Environment-specific settings
+
 await builder.Services.AddInfrastructureServices(builder.Configuration);
 var app = builder.Build();
 

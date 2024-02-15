@@ -27,9 +27,19 @@ public static class InfrastructureRegistration
     public static async Task<IServiceCollection> AddInfrastructureServices(this IServiceCollection services,
         IConfiguration configuration)
     {
+
+        var environment = Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT");
+     
         services.AddDbContext<ApplicationDbContext>(opt =>
         {
-            opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            if (environment == "Test")
+            {
+                opt.UseSqlite(configuration.GetConnectionString("DefaultConnection"));
+            }
+            else
+            {
+                opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            }
         });
         services.AddIdentity<User, Role>(opt => { opt.SignIn.RequireConfirmedAccount = false; })
             .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -37,7 +47,7 @@ public static class InfrastructureRegistration
         LoadLogging(services);
         LoadRepositories(services);
         LoadViewModels(services);
-        await Seeding(services);
+        //await Seeding(services);
         return services;
     }
 
