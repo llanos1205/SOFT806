@@ -29,8 +29,19 @@ jobs:
         run: dotnet build SOFT703A2.WebApp --configuration Release --no-restore
 
       - name: Run tests
-        run: dotnet test SOFT806.Tests --no-restore --verbosity normal
-   
+        run: dotnet test SOFT806.Tests --no-restore --configuration Release --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+      - name: Code Coverage Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: ./coverage/**/coverage.cobertura.xml
+          badge: true
+          fail_below_min: true
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: true
+          indicators: true
+          output: both
+          thresholds: '60 80'
       - name: Publish application
         run: dotnet publish SOFT703A2.WebApp --configuration Release --output ./publish --no-restore  --no-build
 
