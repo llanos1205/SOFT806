@@ -1,8 +1,4 @@
 ﻿using FakeItEasy;
-using Microsoft.AspNetCore.Identity;
-using SOFT703A2.Domain.Models;
-using SOFT703A2.Infrastructure.Persistence;
-using SOFT703A2.Infrastructure.Repositories;
 
 namespace SOFT806.Tests.UnitTests;
 

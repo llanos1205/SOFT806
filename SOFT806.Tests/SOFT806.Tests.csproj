@@ -23,9 +23,5 @@
     <ItemGroup>
       <Folder Include="IntegrationTests\" />
     </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\SOFT703A2.Infrastructure\SOFT703A2.Infrastructure.csproj" />
-    </ItemGroup>
-
+    
 </Project>
