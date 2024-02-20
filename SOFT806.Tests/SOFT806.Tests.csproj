@@ -10,7 +10,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="FakeItEasy" Version="8.1.0" />
+        <PackageReference Include="FluentAssertions" Version="6.12.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
+        <PackageReference Include="Moq" Version="4.20.70" />
         <PackageReference Include="NUnit" Version="3.13.3" />
         <PackageReference Include="NUnit3TestAdapter" Version="4.4.2" />
         <PackageReference Include="NUnit.Analyzers" Version="3.6.1" />
@@ -19,6 +22,10 @@
 
     <ItemGroup>
       <Folder Include="IntegrationTests\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SOFT703A2.Infrastructure\SOFT703A2.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>
