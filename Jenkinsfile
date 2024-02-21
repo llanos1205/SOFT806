@@ -38,8 +38,8 @@ pipeline {
                             sh 'echo $DOCKER_TOKEN | docker login -u $DOCKER_USERNAME --password-stdin'
                         }
         
-                        sh 'docker buildx build . --file ./Dockerfile --push --tag $DOCKER_REGISTRY/soft806-api:jenkins'
-                        sh 'docker buildx build . --file ./Migrations.Dockerfile --push --tag $DOCKER_REGISTRY/soft806-migrations:jenkins'
+                        sh 'docker buildx build . --file ./Dockerfile --push --tag $DOCKER_REGISTRY/soft806-api:latest'
+                        sh 'docker buildx build . --file ./Migrations.Dockerfile --push --tag $DOCKER_REGISTRY/soft806-migrations:latest'
                     }
                 }
         
