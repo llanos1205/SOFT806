@@ -24,6 +24,7 @@ pipeline {
                 )
 
             }
+            }
 
         stage('Package') {
                     steps {
@@ -41,7 +42,7 @@ pipeline {
                         sh 'docker buildx build . --file ./Migrations.Dockerfile --push --tag $DOCKER_REGISTRY/soft806-migrations:jenkins'
                     }
                 }
-        }
+        
         stage('Deploy') {
       
             steps {
