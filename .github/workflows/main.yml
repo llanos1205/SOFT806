@@ -30,7 +30,7 @@ jobs:
         run: dotnet restore --verbosity minimal
 
       - name: Build application
-        run: dotnet build SOFT806.WebApp --configuration Release --no-restore --verbosity minimal
+        run: dotnet build SOFT806.WebApp --configuration Release --no-restore --verbosity minimal --property WarningLevel=0
 
       - name: Run tests
         run: dotnet test SOFT806.Tests --no-restore --configuration Release --verbosity minimal --logger "trx;LogFileName=test-results/test-results.trx" 
@@ -40,9 +40,9 @@ jobs:
         if: always()
         with:
           files: |
-            test-results/**/*.xml
-            test-results/**/*.trx
-            test-results/**/*.json
+            SOFT806.Tests/test-results/**/*.xml
+            SOFT806.Tests/test-results/**/*.trx
+            SOFT806.Tests/test-results/**/*.json
 
       - name: Publish application
         run: dotnet publish SOFT806.WebApp --configuration Release --output ./publish --no-restore  --no-build --verbosity minimal
