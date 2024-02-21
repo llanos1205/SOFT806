@@ -71,7 +71,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ variables.DOCKER_REGISTRY }}/soft806-api:latest
+            ${{ vars.DOCKER_REGISTRY }}/soft806-api:latest
         
 
       - name: Build and push Docker migrator
@@ -81,7 +81,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ variables.DOCKER_REGISTRY }}/soft806-migrations:latest
+            ${{ vars.DOCKER_REGISTRY }}/soft806-migrations:latest
 #  deploy:
 #    
 #    runs-on: self-hosted
