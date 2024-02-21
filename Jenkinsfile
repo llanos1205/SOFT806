@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+        DOCKER_REGISTRY = 'llanos1205'
+    }
     stages {
         stage('Build') {
             steps {
@@ -35,8 +37,8 @@ pipeline {
                             sh 'docker login -u $DOCKER_USERNAME --password-stdin'
                         }
         
-                        sh 'docker buildx build . --file ./Dockerfile --push --tag $DOCKER_REGISTRY/soft806-api:latest'
-                        sh 'docker buildx build . --file ./Migrations.Dockerfile --push --tag $DOCKER_REGISTRY/soft806-migrations:latest'
+                        sh 'docker buildx build . --file ./Dockerfile --push --tag $DOCKER_REGISTRY/soft806-api:jenkins'
+                        sh 'docker buildx build . --file ./Migrations.Dockerfile --push --tag $DOCKER_REGISTRY/soft806-migrations:jenkins'
                     }
                 }
         }
