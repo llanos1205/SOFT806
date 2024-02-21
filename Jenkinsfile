@@ -35,7 +35,7 @@ pipeline {
         
                         withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'DOCKER_TOKEN', usernameVariable: 'DOCKER_USERNAME')]) {
                             sh 'rm ~/.docker/config.json'
-                            sh 'docker login -u $DOCKER_USERNAME --password-stdin'
+                            sh 'echo $DOCKER_TOKEN | docker login -u $DOCKER_USERNAME --password-stdin'
                         }
         
                         sh 'docker buildx build . --file ./Dockerfile --push --tag $DOCKER_REGISTRY/soft806-api:jenkins'
@@ -50,7 +50,7 @@ pipeline {
                 
                                 withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'DOCKER_TOKEN', usernameVariable: 'DOCKER_USERNAME')]) {
                                     sh 'rm ~/.docker/config.json'
-                                    sh 'docker login -u $DOCKER_USERNAME --password-stdin'
+                                   sh 'echo $DOCKER_TOKEN | docker login -u $DOCKER_USERNAME --password-stdin'
                                 }
                 
                                 sh 'docker-compose stop'
