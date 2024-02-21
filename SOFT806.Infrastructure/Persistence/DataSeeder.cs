@@ -103,6 +103,7 @@ public class DataSeeder
                     Name = "Vaporeon Mimikiu",
                     Price = 50.00,
                     Stock = 50,
+                    IsPromoted = true,
                     Category = categories.Find(c => c.Name == "Plushies"),
                     Photo =
                         "https://pokemon-faction.com/cdn/shop/products/product-image-1714578092_480x.jpg?v=1626812080"
@@ -139,6 +140,7 @@ public class DataSeeder
                     Name = "Glaceon Mimikiu",
                     Price = 30.00,
                     Stock = 50,
+                    IsPromoted = true,
                     Category = categories.Find(c => c.Name == "Plushies"),
                     Photo =
                         "https://pokemon-faction.com/cdn/shop/products/product-image-1804715638_480x.jpg?v=1626812076"
@@ -172,7 +174,7 @@ public class DataSeeder
                 },
                 new()
                 {
-                    Name = "Pokeball Bag",
+                    Name = "Pokeball Bag 3",
                     Price = 75.00,
                     Stock = 40,
                     Category = categories.Find(c => c.Name == "Bags"),
@@ -190,9 +192,10 @@ public class DataSeeder
                 },
                 new()
                 {
-                    Name = "Pokeball Bag",
+                    Name = "Pokeball Bag 2",
                     Price = 124.00,
                     Stock = 50,
+                    IsPromoted = true,
                     Category = categories.Find(c => c.Name == "Bags"),
                     Photo =
                         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxmk_skPglNXsONKVIgVfeZgqsfshoyEPGoFuo5Pm0JtEtodj-R1YaYmx9UTihhuzT2Vk&usqp=CAU"
@@ -253,6 +256,7 @@ public class DataSeeder
                     Name = "YYY Figure",
                     Price = 700.00,
                     Stock = 100,
+                    IsPromoted = true,
                     Category = categories.Find(c => c.Name == "Figures"),
                     Photo = "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P6259_703-05967_01.jpg"
                 }
