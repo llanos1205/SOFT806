@@ -16,7 +16,7 @@ pipeline {
                 sh 'dotnet test SOFT806.Tests --configuration Release --no-restore --verbosity minimal --logger "trx;LogFileName=test-reports/unit_tests.xml"'
                 
                 junit skipPublishingChecks: true, 
-                      testResults: '**/test-reports/unit_tests.xml',
+                      testResults: 'SOFT806.Tests/TestResults/test-reports/unit_tests.xml',
                       allowEmptyResults: true
 
             }
