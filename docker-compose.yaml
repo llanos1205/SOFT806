@@ -1,9 +1,9 @@
 ﻿services:
   api:
-    image: soft806-api:latest
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: llanos1205/soft806-api:latest
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
     container_name: api
     hostname: api
     ports:
@@ -29,13 +29,13 @@
     healthcheck:
       test: "exit 0"
   migrations:
-    image: soft806-migrations:latest
+    image: llanos1205/soft806-migrations:latest
     healthcheck:
       test: "exit 0"
-    build:
-      no_cache: true
-      context: .
-      dockerfile: Migrations.Dockerfile
+#    build:
+#      no_cache: true
+#      context: .
+#      dockerfile: Migrations.Dockerfile
     depends_on:
       db_sqlserver:
         condition: service_healthy
