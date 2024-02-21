@@ -40,9 +40,7 @@ jobs:
         if: always()
         with:
           files: |
-            SOFT806.Tests/test-results/**/*.xml
-            SOFT806.Tests/test-results/**/*.trx
-            SOFT806.Tests/test-results/**/*.json
+            SOFT806.Tests/**/test-results.trx
 
       - name: Publish application
         run: dotnet publish SOFT806.WebApp --configuration Release --output ./publish --no-restore  --no-build --verbosity minimal
