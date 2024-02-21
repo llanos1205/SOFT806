@@ -13,10 +13,10 @@ pipeline {
 
                 sh 'dotnet build SOFT806.WebApp --configuration Release --no-restore --verbosity minimal --property WarningLevel=0'
 
-                sh 'dotnet test SOFT806.Tests --configuration Release --no-restore --verbosity minimal --logger "trx;LogFileName=test-reports/unit_tests.xml"'
+                sh 'dotnet test SOFT806.Tests --configuration Release --no-restore --verbosity minimal --logger "trx;LogFileName=test-results/unit_tests.xml"'
                 
                 junit skipPublishingChecks: true, 
-                      testResults: 'SOFT806.Tests/TestResults/test-reports/unit_tests.xml',
+                      testResults: '**/test-results/*.xml',
                       allowEmptyResults: true
 
             }
