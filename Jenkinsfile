@@ -12,7 +12,7 @@ pipeline {
                 sh 'dotnet restore'
 
                 // Build application
-                sh 'dotnet build SOFT703A2.WebApp --configuration Release --no-restore'
+                sh 'dotnet build SOFT806.WebApp --configuration Release --no-restore'
 
                 // Run tests and collect coverage
                 sh 'dotnet test SOFT806.Tests --configuration Release --no-restore'

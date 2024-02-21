@@ -1,6 +1,6 @@
 ﻿services:
   api:
-    image: soft803-api:latest
+    image: soft806-api:latest
     build:
       context: .
       dockerfile: Dockerfile
@@ -17,10 +17,6 @@
       - SEEDING=True
       - DOTNET_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:3000
-       
-        
-        
-        
   db_sqlserver:
     image: "mcr.microsoft.com/mssql/server:2022-latest"
     container_name: db_sqlserver
@@ -33,7 +29,7 @@
     healthcheck:
       test: "exit 0"
   migrations:
-    image: soft803-migrations:latest
+    image: soft806-migrations:latest
     healthcheck:
       test: "exit 0"
     build:
@@ -45,5 +41,5 @@
     environment:
       - DOTNET_ENVIRONMENT=Development
       - SEEDING=False
-    entrypoint: [ "dotnet", "ef", "database", "update", "--project", "SOFT703A2.Infrastructure/SOFT703A2.Infrastructure.csproj", "--startup-project", "SOFT703A2.WebApp/SOFT703A2.WebApp.csproj" ]
+    entrypoint: [ "dotnet", "ef", "database", "update", "--project", "SOFT806.Infrastructure/SOFT806.Infrastructure.csproj", "--startup-project", "SOFT806.WebApp/SOFT806.WebApp.csproj" ]
 

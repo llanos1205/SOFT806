@@ -13,15 +13,15 @@ COPY . .
 RUN dotnet restore
 
 WORKDIR "/src/SOFT703A2.WebApp"
-RUN dotnet build "SOFT703A2.WebApp.csproj" -c Release -o /app/build --no-restore
+RUN dotnet build "SOFT806.WebApp.csproj" -c Release -o /app/build --no-restore
 
 # Publish the application
 FROM build AS publish
-RUN dotnet publish "SOFT703A2.WebApp.csproj" -c Release -o /app/publish
+RUN dotnet publish "SOFT806.WebApp.csproj" -c Release -o /app/publish
 
 # Final stage / image
 FROM base AS final
 ARG SEEDING
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "SOFT703A2.WebApp.dll"]
+ENTRYPOINT ["dotnet", "SOFT806.WebApp.dll"]
