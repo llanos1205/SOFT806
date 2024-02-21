@@ -1,0 +1,84 @@
+﻿@model SOFT806.Infrastructure.Contracts.ViewModels.Product.ICreateProductViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<script src="/js/Product/shared.js"></script>
+<div class="col-md-6 offset-md-3">
+    <h2>Create New Product</h2>
+    <form asp-controller="Product" asp-action="Add" method="post">
+        <table>
+            <tbody>
+            <tr>
+                <td>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="Name">Name</label>
+                                    <input asp-for="Name" class="form-control"/>
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="Photo">Photo Url</label>
+                                    <input asp-for="Photo" class="form-control" id="photoUrlInput"/>
+                                    <span asp-validation-for="Photo" class="text-danger"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="Price">Price</label>
+                                    <input asp-for="Price" class="form-control"/>
+                                    <span asp-validation-for="Price" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="Stock">Stock</label>
+                                    <input asp-for="Stock" class="form-control"/>
+                                    <span asp-validation-for="Stock" class="text-danger"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="SelectedCategory">Category</label>
+                                    <select asp-for="SelectedCategory" class="form-control" id="SelectedCategoryId">
+                                        @foreach (var category in Model.Categories)
+                                        {
+                                            <option value="@category.Value">@category.Text</option>
+                                        }
+                                    </select>
+                                    <span asp-validation-for="SelectedCategory" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <label asp-for="IsPromoted">Promote?</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" asp-for="IsPromoted" class="form-check-input"/>
+                                <span asp-validation-for="IsPromoted" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <img id="previewImage" style="max-width: 200px; max-height: 200px;"/>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <button type="submit" class="btn btn-primary bg-green btn-custom">Add</button>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+﻿@model SOFT806.Infrastructure.Contracts.ViewModels.Home.IHomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div class="col-md-8 offset-md-2">
+    @if (@Model.PromotedProducts.Count > 0)
+    {
+        <div class="row-md-1">
+            <h4>Our best products</h4>
+        </div>
+        <div class="row" style="overflow-x: auto; white-space: nowrap;">
+            <div class="d-flex">
+                @foreach (var product in Model.PromotedProducts)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card" style="width: 250px; height: 300px;">
+                            <a href="@Url.Action("Detail", "MarketPlace", new { id = product.Id })">
+                                <img src="@product.Photo" class="card-img-top" alt="Product Image" style="height: 190px;">
+                            </a>
+                            <div class="card-body">
+                                <h6 class="card-title">@product.Name - $@product.Price</h6>
+                                <h7 class="card-title">@product.Category.Name</h7>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
