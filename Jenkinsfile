@@ -15,14 +15,7 @@ pipeline {
 
                 sh 'dotnet test SOFT806.Tests --configuration Release --no-restore --verbosity minimal --logger "trx;LogFileName=results.trx"'
                 
-                post {
-                            always {
-                                mstestPublisher(
-                                    testResultsFile: "**/results.trx",
-                                    failOnError: true // Optional, fail build if tests fail
-                                )
-                            }
-                        }
+               
 
             }
 
@@ -37,4 +30,9 @@ pipeline {
             }
         }
     }
+    post {
+            always {
+                junit 'SOFT806.Tests/TestResults/**/*.trx'
+            }
+        }
 }
