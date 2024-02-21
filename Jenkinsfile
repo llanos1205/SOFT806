@@ -14,7 +14,7 @@ pipeline {
                 sh 'dotnet build SOFT806.WebApp --configuration Release --no-restore --verbosity minimal --property WarningLevel=0'
 
                 sh 'dotnet test SOFT806.Tests --configuration Release --no-restore --verbosity minimal --logger "trx;LogFileName=results.trx"'
-                
+                junit 'SOFT806.Tests/TestResults/**/*.trx'
                
 
             }
@@ -30,9 +30,4 @@ pipeline {
             }
         }
     }
-    post {
-            always {
-                junit 'SOFT806.Tests/TestResults/**/*.trx'
-            }
-        }
 }
