@@ -33,6 +33,7 @@
     healthcheck:
       test: "exit 0"
     build:
+      no_cache: true
       context: .
       dockerfile: Migrations.Dockerfile
     depends_on:
