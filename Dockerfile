@@ -12,7 +12,7 @@ WORKDIR /src
 COPY . .
 RUN dotnet restore
 
-WORKDIR "/src/SOFT703A2.WebApp"
+WORKDIR "/src/SOFT806.WebApp"
 RUN dotnet build "SOFT806.WebApp.csproj" -c Release -o /app/build --no-restore
 
 # Publish the application

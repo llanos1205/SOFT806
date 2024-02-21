@@ -29,7 +29,15 @@ jobs:
         run: dotnet build SOFT806.WebApp --configuration Release --no-restore
 
       - name: Run tests
-        run: dotnet test SOFT806.Tests --no-restore --configuration Release --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+        run: dotnet test SOFT806.Tests --no-restore --configuration Release --logger "trx;LogFileName=test-results.trx" || true
+          
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        with:
+          name: DotNET Tests
+          path: "**/test-results.trx"
+          reporter: dotnet-trx
+          fail-on-error: true
           
       - name: Publish application
         run: dotnet publish SOFT806.WebApp --configuration Release --output ./publish --no-restore  --no-build
