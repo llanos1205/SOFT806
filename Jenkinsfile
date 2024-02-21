@@ -13,10 +13,14 @@ pipeline {
 
                 sh 'dotnet build SOFT806.WebApp --configuration Release --no-restore --verbosity minimal --property WarningLevel=0'
 
-                sh 'dotnet test SOFT806.Tests --configuration Release --no-restore --verbosity minimal --logger "trx;LogFileName=test-reports/unit_tests.xml"'
+                sh 'dotnet test SOFT806.Tests --configuration Release --no-restore --verbosity minimal --logger "trx;LogFileName=results.trx"'
                 
-                junit skipPublishingChecks: true, 
-                      testResults: '**/test-reports/unit_tests.xml'
+                publishers {
+                            mstestPublisher(
+                                testResultsFile: "**/results.trx",
+                                failOnError: true // Optional, fail build if tests fail
+                            )
+                        }
 
             }
 
