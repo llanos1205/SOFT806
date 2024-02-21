@@ -15,7 +15,7 @@ pipeline {
 
                 sh 'dotnet test SOFT806.Tests --configuration Release --no-restore --verbosity minimal --logger "trx;LogFileName=unit_tests.xml"'
                 
-               MsTest(
+               mstest(
                     testResultsFile: 'SOFT806.Tests/TestResults/unit_tests.xml',
                     keepLongStdio: true,
                     failOnError: true
