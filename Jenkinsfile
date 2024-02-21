@@ -23,14 +23,37 @@ pipeline {
 
             }
 
-         
+        stage('Package') {
+                    steps {
+                        checkout scm
+        
+                        // Use appropriate plugin for Docker setup
+                        sh 'docker buildx install'
+        
+                        withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'DOCKER_TOKEN', usernameVariable: 'DOCKER_USERNAME')]) {
+                            sh 'rm ~/.docker/config.json'
+                            sh 'docker login -u $DOCKER_USERNAME --password-stdin'
+                        }
+        
+                        sh 'docker buildx build . --file ./Dockerfile --push --tag $DOCKER_REGISTRY/soft806-api:latest'
+                        sh 'docker buildx build . --file ./Migrations.Dockerfile --push --tag $DOCKER_REGISTRY/soft806-migrations:latest'
+                    }
+                }
         }
         stage('Deploy') {
       
             steps {
-                unstash 'source'
-
-                sh 'docker-compose -f docker-compose.yaml up -d'
+                checkout scm
+                
+                                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'DOCKER_TOKEN', usernameVariable: 'DOCKER_USERNAME')]) {
+                                    sh 'rm ~/.docker/config.json'
+                                    sh 'docker login -u $DOCKER_USERNAME --password-stdin'
+                                }
+                
+                                sh 'docker-compose stop'
+                                sh 'docker-compose rm -f'
+                                sh 'docker-compose pull'
+                                sh 'docker-compose up -d'
             }
         }
     }
