@@ -28,7 +28,10 @@ dotnet restore
 dotnet ef database update --project SOFT806.Infrastructure --startup-project SOFT806.WebApp
 ``` 
 
-6. Run the project, this will seed the database with some data (admin user, products,categories, etc)
+alternatively you can run the base_migration.sql file your db of choice
+
+
+6. Run the project, this will seed the database with some data, this requires the migrations first (admin user, products,categories, etc)
 
 ```
 dotnet run --project SOFT806.WebApp
