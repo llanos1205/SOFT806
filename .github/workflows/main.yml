@@ -72,15 +72,6 @@ jobs:
           tags: |
             ${{ vars.DOCKER_REGISTRY }}/soft806-api:latest
 
-
-      - name: Build and push Docker migrator
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Migrations.Dockerfile
-          push: true
-          tags: |
-            ${{ vars.DOCKER_REGISTRY }}/soft806-migrations:latest
   deploy:
     runs-on: self-hosted
     needs:
