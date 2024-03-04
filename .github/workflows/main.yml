@@ -88,7 +88,7 @@ jobs:
 
       - name: Run docker compose
         run: |
-          docker-compose stop --file docker-compose.dev.yaml
-          docker-compose rm -f --file docker-compose.dev.yaml
-          docker-compose pull --file docker-compose.dev.yaml
-          docker-compose up -d  --file docker-compose.dev.yaml
+          docker-compose -f docker-compose.dev.yaml stop
+          docker-compose -f docker-compose.dev.yaml rm -f
+          docker-compose -f docker-compose.dev.yaml pull -q
+          docker-compose -f docker-compose.dev.yaml up -d
