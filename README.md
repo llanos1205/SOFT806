@@ -28,15 +28,15 @@ dotnet restore
 dotnet ef database update --project SOFT806.Infrastructure --startup-project SOFT806.WebApp
 ``` 
 
-Alternatively you can run the base_migration.sql file in the root of the project to create the database and the tables using your database explorer of choice
-but youll need to create the database manually before running the script
+Alternatively you can run the base_migration.sql file in the SQLScripts folder in root of the project to create the database and the tables using your database explorer of choice
+but you'll need to create the database manually before running the script
 
 ``` 
-base_migration.sql
+SQLScripts/base_migration.sql
+SQLScripts/seed_migration.sql
 ``` 
 
-6. Run the project, this will seed the database with some data (admin user, products,categories, etc)
-but you will need the environment variable `SEEDING` set to `true`
+6. Run the project
 ```
 dotnet run --project SOFT806.WebApp
 

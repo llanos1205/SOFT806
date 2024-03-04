@@ -1,9 +1,9 @@
 ﻿services:
   api:
-    image: llanos1205/soft806-api:latest
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
+    image: soft806-api:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: api
     hostname: api
     ports:
@@ -29,18 +29,26 @@
     healthcheck:
       test: "exit 0"
   migrations:
-    image: llanos1205/soft806-migrations:latest
+    image: mcr.microsoft.com/mssql-tools
+    command: /bin/bash
     healthcheck:
       test: "exit 0"
-#    build:
-#      no_cache: true
-#      context: .
-#      dockerfile: Migrations.Dockerfile
     depends_on:
       db_sqlserver:
         condition: service_healthy
-    environment:
-      - DOTNET_ENVIRONMENT=Development
-      - SEEDING=False
-    entrypoint: [ "dotnet", "ef", "database", "update", "--project", "SOFT806.Infrastructure/SOFT806.Infrastructure.csproj", "--startup-project", "SOFT806.WebApp/SOFT806.WebApp.csproj" ]
-
+    volumes:
+      - ./SQLScripts/base_migration.sql:/init.sql:ro
+      - ./SQLScripts/seed_migration.sql:/seed.sql:ro
+    entrypoint: >
+      bash -c "
+      echo 'Waiting for db_sqlserver to be ready...' ;
+      /opt/mssql-tools/bin/sqlcmd -S db_sqlserver -U sa -P Password123 -Q 'CREATE DATABASE Soft806;';
+      echo 'Database Soft806 created';
+      echo 'Waiting for schema to be created...';
+      /opt/mssql-tools/bin/sqlcmd -S db_sqlserver -U sa -P Password123 -d Soft806 -i /init.sql;
+      echo 'Schema created';
+      echo 'Waiting for seed data to be created...';
+      /opt/mssql-tools/bin/sqlcmd -S db_sqlserver -U sa -P Password123 -d Soft806 -i /seed.sql;
+      echo 'Seed data created';
+      echo 'Migration completed';
+      "

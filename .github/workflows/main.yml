@@ -89,7 +89,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
+
       - name: Login to DockerHub
         run: |
           rm ~/.docker/config.json
@@ -97,7 +97,7 @@ jobs:
 
       - name: Run docker compose
         run: |
-          docker-compose stop
-          docker-compose rm -f
-          docker-compose pull   
-          docker-compose up -d
+          docker-compose stop --file docker-compose.dev.yaml
+          docker-compose rm -f --file docker-compose.dev.yaml
+          docker-compose pull --file docker-compose.dev.yaml
+          docker-compose up -d  --file docker-compose.dev.yaml
