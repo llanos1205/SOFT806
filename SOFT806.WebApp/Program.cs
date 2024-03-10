@@ -7,8 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<AdminAuthorizationFilter>();
 builder.Services.AddScoped<CustomAuthorizeAttribute>();
+builder.Configuration.AddJsonFile("appsettings.Local.json", optional: true, reloadOnChange: false); 
 builder.Configuration.AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT")}.json",
-    optional: true, reloadOnChange: false); // Environment-specific settings
+    optional: true, reloadOnChange: false); 
 builder.Configuration.AddEnvironmentVariables( );
 await builder.Services.AddInfrastructureServices(builder.Configuration);
 var app = builder.Build();

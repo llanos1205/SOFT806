@@ -1,6 +1,6 @@
 ﻿services:
   api:
-    image: soft806-api:latest
+    image: api:latest
     build:
       context: .
       dockerfile: Dockerfile
@@ -14,7 +14,6 @@
       migrations:
         condition: service_completed_successfully
     environment:
-      - SEEDING=True
       - DOTNET_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:3000
   db_sqlserver:

@@ -11,7 +11,6 @@
       migrations:
         condition: service_completed_successfully
     environment:
-      - SEEDING=True
       - DOTNET_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:3000
   db_sqlserver:

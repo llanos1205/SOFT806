@@ -27,9 +27,8 @@ public static class InfrastructureRegistration
     public static async Task<IServiceCollection> AddInfrastructureServices(this IServiceCollection services,
         IConfiguration configuration)
     {
-
         var environment = Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT");
-     
+
         services.AddDbContext<ApplicationDbContext>(opt =>
         {
             if (environment == "Test")
@@ -58,6 +57,7 @@ public static class InfrastructureRegistration
         {
             Log.Warning("DIDNT SEED");
         }
+
         return services;
     }
 

@@ -14,8 +14,8 @@
       "launchBrowser":false,
       "applicationUrl": "http://localhost:5292",
       "environmentVariables": {
-        "DOTNET_ENVIRONMENT": "Local",
-        "SEEDING": "True"
+        "DOTNET_ENVIRONMENT": "Local"
+       
       }
     },
     "http-dev": {
