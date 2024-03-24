@@ -8,6 +8,8 @@ namespace SOFT806.WebApp.Controllers;
 
 public class AccountController : Controller
 {
+        // Private fields with appropriate naming conventions
+
     private readonly ILoginViewModel _loginViewModel;
     private readonly IRegisterViewModel _registerViewModel;
     private readonly ILogger<AccountController> _logger;
